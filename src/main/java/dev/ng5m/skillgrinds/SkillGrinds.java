@@ -12,10 +12,12 @@ public final class SkillGrinds extends JavaPlugin {
 
         Shared.registerListeners(this);
 
-        if (!getConfig().getBoolean("villagers.resetOnReload"))
-            getConfig().set("villagers.guideVillager.name", Shared.fix("&aGuide"));
-        else if (!getConfig().isSet("villagers.resetOnReload"))
+        if (!getConfig().isSet("villagers.resetOnReload"))
             getConfig().set("villagers.resetOnReload", false);
+        else {
+            if (getConfig().getBoolean("villagers.resetOnReload"))
+                getConfig().set("villagers.guideVillager.name", Shared.fix("&aGuide"));
+        }
 
         saveConfig();
     }

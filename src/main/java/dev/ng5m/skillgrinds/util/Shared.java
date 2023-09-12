@@ -1,12 +1,15 @@
 package dev.ng5m.skillgrinds.util;
 
 import dev.ng5m.skillgrinds.SkillGrinds;
+import dev.ng5m.skillgrinds.listener.VillagerInteractEvent;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -16,11 +19,9 @@ public class Shared {
     public static FileConfiguration cfg = plugin.getConfig();
     public static List<Listener> listeners = new ArrayList<>();
 
-    public static void registerListener(Listener listener) {
-        listeners.add(listener);
-    }
-
     public static void registerListeners(Plugin plugin) {
+        listeners.add(new VillagerInteractEvent());
+
         for (Listener l : listeners)
             plugin.getServer().getPluginManager().registerEvents(l, plugin);
     }

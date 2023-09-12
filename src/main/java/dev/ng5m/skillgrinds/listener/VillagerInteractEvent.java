@@ -4,6 +4,7 @@ import dev.ng5m.skillgrinds.util.Shared;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.Villager;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
@@ -16,8 +17,9 @@ public class VillagerInteractEvent extends Shared implements Listener {
         Player p = e.getPlayer();
         Entity entity = e.getRightClicked();
 
-        if (entity.getType() == EntityType.VILLAGER) {
-            if (Objects.equals(entity.getCustomName(), cfg.getString("villagers.guideVillager.name"))) {
+        if (entity instanceof Villager) {
+            if (Objects.equals(entity.getName(), cfg.getString("villagers.guideVillager.name"))
+                    || Objects.equals(entity.getCustomName(), cfg.getString("villagers.guideVillager.name"))) {
                 p.sendMessage(fix("Hello World!"));
             }
         }
