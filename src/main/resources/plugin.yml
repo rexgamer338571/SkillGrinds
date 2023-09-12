@@ -1,0 +1,4 @@
+name: SkillGrinds
+version: '${project.version}'
+main: dev.ng5m.skillgrinds.SkillGrinds
+api-version: '1.20'
