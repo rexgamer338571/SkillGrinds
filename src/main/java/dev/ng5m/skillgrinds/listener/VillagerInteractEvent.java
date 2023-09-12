@@ -1,8 +1,8 @@
 package dev.ng5m.skillgrinds.listener;
 
+import dev.ng5m.skillgrinds.gui.guis.guide.GuideGUI;
 import dev.ng5m.skillgrinds.util.Shared;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Villager;
 import org.bukkit.event.EventHandler;
@@ -20,7 +20,8 @@ public class VillagerInteractEvent extends Shared implements Listener {
         if (entity instanceof Villager) {
             if (Objects.equals(entity.getName(), cfg.getString("villagers.guideVillager.name"))
                     || Objects.equals(entity.getCustomName(), cfg.getString("villagers.guideVillager.name"))) {
-                p.sendMessage(fix("Hello World!"));
+
+                p.openInventory(GuideGUI.getInv().getInventory());
             }
         }
     }
