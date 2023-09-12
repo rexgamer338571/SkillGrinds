@@ -19,11 +19,14 @@ public class CCustomVillager extends Shared implements CommandExecutor {
             Player p = (Player) sender;
 
             if (args.length >= 1) {
-                StringBuilder name = new StringBuilder();
+                String name = "";
 
-                for (String arg : args) {
-                    name.append(arg).append(" ");
-                }
+                if (!(args.length == 1))
+                    for (String arg : args) {
+                        name += arg + " ";
+                    }
+                else
+                    name = args[0];
 
                 Villager entity = (Villager) p.getWorld().spawnEntity(p.getLocation(), EntityType.VILLAGER);
                 AttributeInstance attribs = entity.getAttribute(Attribute.GENERIC_MAX_HEALTH);
@@ -34,7 +37,7 @@ public class CCustomVillager extends Shared implements CommandExecutor {
                 entity.setCustomNameVisible(true);
                 entity.setInvulnerable(true);
                 entity.setAI(false);
-                entity.setCustomName(fix(String.valueOf(name)));
+                entity.setCustomName(fix(name));
 
             } else {
                 p.sendMessage(fix("&cInvalid arguments!"));
