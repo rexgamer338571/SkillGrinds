@@ -21,6 +21,8 @@ public class VillagerInteractEvent extends Shared implements Listener {
             if (Objects.equals(entity.getName(), cfg.getString("villagers.guideVillager.name"))
                     || Objects.equals(entity.getCustomName(), cfg.getString("villagers.guideVillager.name"))) {
 
+                e.setCancelled(true);
+
                 p.openInventory(GuideGUI.getInv().getInventory());
             }
         }
