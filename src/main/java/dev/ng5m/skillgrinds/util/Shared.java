@@ -25,10 +25,12 @@ public class Shared {
             plugin.getServer().getPluginManager().registerEvents(l, plugin);
     }
 
-    public static void registerConfigEntries(FileConfiguration cfg, List<String> paths, List<Object> values) {
+    public static void registerConfigEntries(List<String> paths, List<Object> values) {
         for (int i = 0; i < paths.size(); i++) {
             cfg.set(paths.get(i), values.get(i));
         }
+
+        plugin.saveConfig();
     }
 
     public static String fix(String str) {
