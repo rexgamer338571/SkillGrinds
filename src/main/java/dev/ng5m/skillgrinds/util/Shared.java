@@ -1,9 +1,11 @@
 package dev.ng5m.skillgrinds.util;
 
 import dev.ng5m.skillgrinds.SkillGrinds;
+import dev.ng5m.skillgrinds.listener.PlayerChatEvent;
 import dev.ng5m.skillgrinds.listener.VillagerInteractEvent;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.EntityType;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 
@@ -21,6 +23,7 @@ public class Shared {
 
     public static void registerListeners(Plugin plugin) {
         listeners.add(new VillagerInteractEvent());
+        listeners.add(new PlayerChatEvent());
 
         for (Listener l : listeners)
             plugin.getServer().getPluginManager().registerEvents(l, plugin);
@@ -43,6 +46,23 @@ public class Shared {
         }
 
         return ChatColor.translateAlternateColorCodes('&', str).replace(">>", "Â»").replace("<<", "Â«").replace("->", "â†�").replace("**", "â€˘");
+    }
+
+    public static boolean isMobType(String str) {
+        EntityType t;
+
+        try {
+            t = EntityType.valueOf(str);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public static void times(int times, Runnable r) {
+        for (int i = 0; i < times; i++) {
+            r.run();
+        }
     }
 
 }

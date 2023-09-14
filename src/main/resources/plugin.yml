@@ -3,12 +3,24 @@ version: '${project.version}'
 main: dev.ng5m.skillgrinds.SkillGrinds
 api-version: '1.20'
 commands:
-  skillgrindsmanager:
-    aliases:
-      - sgm
-
-    permission: ng5m.skillgrinds.sgm
-    usage: /<command> [option] [action] [value]
+#  skillgrindsmanager:
+#    aliases:
+#      - sgm
+#
+#    permission: ng5m.skillgrinds.sgm
+#    usage: /<command> [option] [action] [value]
   customvillager:
     permission: ng5m.skillgrinds.cv
     usage: /<command> [name]
+  customnpc:
+    aliases:
+      - cnpc
+
+    permission: ng5m.skillgrinds.cnpc
+    usage: /<command> [id] [name*]
+  sgupdate:
+    aliases:
+      - skillgrindsupdate
+
+    permission: ng5m.skillgrinds.update
+    usage: /<command>
