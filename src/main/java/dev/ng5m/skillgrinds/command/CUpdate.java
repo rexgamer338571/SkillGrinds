@@ -9,7 +9,7 @@ import java.net.URL;
 
 public class CUpdate {
     public static void update() {
-        try (BufferedInputStream bufferedInputStream = new BufferedInputStream(new URL("https://raw.githubusercontent.com/rexgamer338571/SkillGrinds/main/updaterData/SkillGrinds-1.0.jar").openStream()); FileOutputStream fileOutputStream = new FileOutputStream("/plugins/SkillGrinds-1.0.test.jar")) {
+        try (BufferedInputStream bufferedInputStream = new BufferedInputStream(new URL("https://raw.githubusercontent.com/rexgamer338571/SkillGrinds/main/updaterData/SkillGrinds-1.0.jar").openStream()); FileOutputStream fileOutputStream = new FileOutputStream("/plugins/SkillGrinds-1.0.jar")) {
             byte[] buffer = new byte[1024];
             int bytes;
 

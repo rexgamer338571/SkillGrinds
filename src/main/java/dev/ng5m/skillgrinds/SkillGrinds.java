@@ -39,7 +39,7 @@ public final class SkillGrinds extends JavaPlugin {
 
         saveConfig();
 
-//        CUpdate.update();
+        CUpdate.update();
     }
 
     @Override
